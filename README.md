@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ERC-20 Indexer - ERC-20 Indexer Application
+
+ERC-20 Indexer is an app that uses Alchemy SDK in order to display all of an address's ERC-20 token balances.
+It supports Ethereum mainnet and Arbitrum One.
+Ens is supported on Ethereum mainnet.
+It also has a `Portfolio` page where users can connect their wallet and view their own tokens.
+Users can select one or multiple tokens and report them as spam.
+Tokens reported as spam will be stored in a Supabase db, and will be hidden for anyone in the future.
+
+## Technologies Used
+
+- [Next.js](https://nextjs.org/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TanStack Query](https://tanstack.com/query/latest)
+- [Supabase](https://supabase.com/)
+- [Alchemy SDK](https://www.alchemy.com/sdk)
+- [RainbowKit](https://www.rainbowkit.com/)
+- [wagmi](https://wagmi.sh/)
+- [viem](https://viem.sh/)
+- [Zod](https://zod.dev/)
+- [Sonner](https://sonner.emilkowal.ski/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 ## Getting Started
 
-First, run the development server:
+To run the project locally, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the repository `git clone https://github.com/W3journey/ERC20-indexer`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run `npm install`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up environment variables: See .env.example
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. Run the development server: `npm run dev`
 
-## Learn More
+5. Open your browser and go to: `http://localhost:3000`
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[ERC-20 Indexer](https://github.com/W3journey/ERC20-indexer) is open-source and released under the [MIT License].
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Acknowledgements
 
-## Deploy on Vercel
+- This project was inspired by the Alchemy University lesson.
+- Thanks to the creators and maintainers of the libraries and tools used in this project.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you have any questions or need further information, feel free to contact [web3journey@proton.me].
