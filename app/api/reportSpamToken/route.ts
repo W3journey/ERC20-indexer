@@ -6,7 +6,6 @@ import { getSpamTokensTableName } from "@/lib/utils"
 import { handleGeneralError, handleValidationError } from "@/lib/errors"
 import { reportSpamTokensSchema } from "@/schemas/spamTokensSchema"
 
-//TODO add some kind of requirement to allow people to use this
 export async function POST(request: Request) {
   const body = await request.json()
 

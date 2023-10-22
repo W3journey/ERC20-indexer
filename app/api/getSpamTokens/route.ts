@@ -10,7 +10,6 @@ import {
 import { getSpamTokensTableName } from "@/lib/utils"
 import { chainIdSchema } from "@/schemas/chainIdSchema"
 
-// TODO add some kind of requirement to allow people to use this. apikey?
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const chainId = searchParams.get("chainId")
