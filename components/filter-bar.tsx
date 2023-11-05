@@ -5,8 +5,8 @@ import { RotateCw } from "lucide-react"
 
 interface FilterBarProps {
   numberOfSelected?: number
-  isLoading: boolean
-  onClick: () => void
+  isLoading?: boolean
+  onClick?: () => void
   value: string
   onChange: React.Dispatch<React.SetStateAction<string>>
   className?: string
@@ -29,7 +29,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
     >
       <div className="relative sm:w-96">
         <Input
-          placeholder="Search tokens on this page..."
+          placeholder="Search by name on this page..."
           className="max-w-lg"
           value={value}
           onChange={(e) => onChange(e.target.value)}

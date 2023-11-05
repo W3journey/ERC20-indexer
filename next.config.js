@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    serverActions: true,
+  },
   images: {
     remotePatterns: [
       {
@@ -8,7 +11,19 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "nft-cdn.alchemy.com",
+      },
+      {
+        protocol: "https",
         hostname: "assets.coingecko.com",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+      {
+        protocol: "https",
+        hostname: "ipfs.io",
       },
     ],
   },

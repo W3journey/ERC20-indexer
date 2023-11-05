@@ -1,31 +1,17 @@
 import { NextResponse } from "next/server"
 import { z } from "zod"
-import { Network, Alchemy, OwnedNft } from "alchemy-sdk"
 
 import { addressSchema } from "@/schemas/addressSchema"
 import supabase from "@/lib/supabase"
 import { chainIdSchema } from "@/schemas/chainIdSchema"
 import { getSpamTokensTableName } from "@/lib/utils"
-
-const getAlchemySettings = (chainId: string) => {
-  if (chainId === "42161") {
-    return {
-      apiKey: process.env.NEXT_PUBLIC_ALCHEMY_MAINNET_API_KEY,
-      network: Network.ARB_MAINNET,
-    }
-  } else {
-    return {
-      apiKey: process.env.NEXT_PUBLIC_ALCHEMY_MAINNET_API_KEY,
-      network: Network.ETH_MAINNET,
-    }
-  }
-}
+import { alchemyClient } from "@/lib/alchemy-client"
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const chainId = searchParams.get("chainId") || "1"
 
-  const alchemy = new Alchemy(getAlchemySettings(chainId))
+  const alchemy = alchemyClient(chainId)
 
   try {
     const address = addressSchema.parse(searchParams.get("address"))

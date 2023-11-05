@@ -8,10 +8,10 @@ import { ThemeProvider } from "@/providers/theme-provider"
 import TanstackProvider from "@/providers/tanstack-provider"
 
 import SiteHeader from "@/components/ui/site-header"
-import { siteConfig } from "@/config/site"
 import ScrollToTopButton from "@/components/scroll-to-top-button"
 import Footer from "@/components/footer"
-import PoweredBy from "@/components/powered-by"
+import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -27,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={cn("min-h-screen antialiased", inter.className)}>
         <TanstackProvider>
           <RainbowProviders>
             <ThemeProvider
@@ -36,11 +36,13 @@ export default function RootLayout({
               enableSystem
               disableTransitionOnChange
             >
-              <SiteHeader />
-              <div className="flex-1">{children}</div>
-              <ScrollToTopButton />
-              <Toaster richColors />
-              <Footer />
+              <div className="flex min-h-screen flex-col">
+                <SiteHeader />
+                <div className="flex-1">{children}</div>
+                <ScrollToTopButton />
+                <Toaster richColors />
+                <Footer />
+              </div>
             </ThemeProvider>
           </RainbowProviders>
         </TanstackProvider>

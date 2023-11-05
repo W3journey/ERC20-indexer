@@ -2,41 +2,43 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 interface PaginationBarProps {
-  page?: string
-  isPreviousPage?: boolean
-  nextPageKey?: string
+  isStaleData?: boolean
+  hasNextPage?: boolean
+  hasPrevPage?: boolean
   fetchingState: boolean
-  onChange: (key?: string) => void
+  nextPage: () => void
+  prevPage: () => void
   className?: string
 }
 
 const PaginationBar: React.FC<PaginationBarProps> = ({
-  page,
-  isPreviousPage,
-  nextPageKey,
+  isStaleData,
+  hasNextPage,
+  hasPrevPage,
   fetchingState,
-  onChange,
+  nextPage,
+  prevPage,
   className,
 }) => {
   return (
     <div className={cn("flex gap-3 ml-auto", className)}>
       <Button
         size={"sm"}
-        variant={!page ? "secondary" : "default"}
-        disabled={!page || fetchingState}
+        variant={hasNextPage ? "secondary" : "default"}
+        disabled={!hasPrevPage || fetchingState}
         onClick={() => {
-          onChange(undefined)
+          prevPage()
         }}
       >
         Previous
       </Button>
       <Button
         size={"sm"}
-        variant={!nextPageKey ? "secondary" : "default"}
-        disabled={!nextPageKey || fetchingState}
+        variant={!hasNextPage ? "secondary" : "default"}
+        disabled={!hasNextPage || fetchingState}
         onClick={() => {
-          if (!isPreviousPage && nextPageKey) {
-            onChange(nextPageKey)
+          if (!isStaleData && hasNextPage) {
+            nextPage()
           }
         }}
       >

@@ -1,9 +1,9 @@
 # ERC-20 Indexer - ERC-20 Indexer Application
 
-ERC-20 Indexer is an app that uses Alchemy SDK in order to display all of an address's ERC-20 token balances.
+ERC-20 Indexer is an app that uses Alchemy SDK in order to display all of an address's ERC-20 token balances and NFTs.
 It supports Ethereum mainnet and Arbitrum One.
 Ens is supported on Ethereum mainnet.
-It also has a `Portfolio` page where users can connect their wallet and view their own tokens.
+It also has a `Portfolio` page where users can connect their wallet and view their own tokens and NFTs.
 Users can select one or multiple tokens and report them as spam.
 Tokens reported as spam will be stored in a Supabase db, and will be hidden for anyone in the future.
 
