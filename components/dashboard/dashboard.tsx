@@ -31,7 +31,7 @@ export const Dashboard = () => {
   const chainTvlInfo = tvlData?.filter(
     (chainInfo) => chainInfo.chainId === chainId
   )
-  const chainTvl = chainTvlInfo ? chainTvlInfo[0].tvl.toFixed(0) : "0"
+  const chainTvl = chainTvlInfo ? chainTvlInfo[0]?.tvl?.toFixed(0) : "0"
 
   const links = {
     homePage: coingeckoCoinData?.links.homepage[0],

@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { Search } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -11,8 +10,6 @@ interface SearchAddressProps {
   value: string
   onClick: () => void
 }
-
-// TODO implement search not found page? https://etherscan.io/search?f=0&q=testing
 
 const SearchAddress: React.FC<SearchAddressProps> = ({
   onChange,
