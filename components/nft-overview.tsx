@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useNetwork } from "wagmi"
+import { useAccount, useNetwork } from "wagmi"
 
 import FilterBar from "@/components/filter-bar"
 import NftCard from "@/components/nft-card"
@@ -10,6 +10,7 @@ import SkeletonNftCard from "@/components/skeletons/skeleton-nft-card"
 import { useDebounce } from "@/hooks/useDebounce"
 import useNftsForOwner from "@/hooks/useNftsForOwner"
 import EmptyWallet from "@/components/empty-wallet"
+import { getChainId } from "@/lib/utils"
 
 const NftOverview = ({ address }: { address?: string }) => {
   const [searchQuery, setSearchQuery] = useState("")
@@ -18,10 +19,12 @@ const NftOverview = ({ address }: { address?: string }) => {
     []
   )
   const debouncedValue = useDebounce(searchQuery)
+  const { isConnected } = useAccount()
   const { chain } = useNetwork()
+  const chainId = getChainId(isConnected, !chain?.unsupported, chain?.id)
 
   const { data, isLoading, isFetching, isPreviousData, isError, error } =
-    useNftsForOwner(address, chain?.id, page)
+    useNftsForOwner(address, chainId, page)
 
   const filteredNfts = data?.ownedNfts.filter((nft) =>
     nft.name?.toLowerCase().includes(debouncedValue)
